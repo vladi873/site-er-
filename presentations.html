@@ -1,0 +1,268 @@
+<!-- Презентации: presentations.html -->
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Презентации | Erasmus+ ПГЕЕ "М.В. Ломоносов"</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .content-wrapper {
+            transition: filter 0.3s ease;
+        }
+
+        .blurred {
+            filter: blur(2px);
+        }
+
+        .navbar {
+            background-color: #003366;
+            padding: 1rem;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .logo-container h1 {
+            font-size: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background-color: #0055aa;
+            border-radius: 5px;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100vh;
+            width: 250px;
+            background-color: #003366;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+
+        .side-menu.show {
+            right: 0;
+        }
+
+        .side-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .presentation-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .presentation-embed iframe {
+            width: 100%;
+            height: 80vh;
+            max-width: 1200px;
+            border: none;
+            display: block;
+            margin: 0 auto;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            font-size: 20px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul.main-menu {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .logo-container h1 {
+                font-size: 1.5rem;
+            }
+
+            .presentation-intro h2 {
+                font-size: 1.5rem;
+            }
+
+            .presentation-intro p {
+                font-size: 1rem;
+            }
+
+            .presentation-embed iframe {
+                height: 60vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container h1 {
+                font-size: 1.25rem;
+            }
+
+            .presentation-intro h2 {
+                font-size: 1.25rem;
+            }
+
+            .presentation-intro p {
+                font-size: 0.9rem;
+            }
+
+            .presentation-embed iframe {
+                height: 50vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="logo-placeholder.png" alt="Лого" class="logo">
+            <h1>Програма Erasmus+</h1>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul class="main-menu">
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="gallery.html">Галерия</a></li>
+                <li><a href="presentations.html" class="active">Презентации</a></li>
+                <li><a href="videos.html">Видеа</a></li>
+            </ul>
+            <div class="side-menu" id="sideMenu">
+                <a href="index.html">Начало</a>
+                <a href="gallery.html">Галерия</a>
+                <a href="presentations.html" class="active">Презентации</a>
+                <a href="videos.html">Видеа</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content-wrapper" id="contentWrapper">
+        <main>
+            <section class="presentation-intro">
+                <h2>Материали от проекта</h2>
+                <p>Презентации и документи, представящи дейности по проекта Erasmus+.</p>
+            </section>
+
+            <section class="presentation-embed">
+                <iframe 
+                    src="https://drive.google.com/file/d/1Sl-C0E6rFg-T24gEX_5semmqDSA9qzHn/preview" 
+                    allow="autoplay">
+                </iframe>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 ПГЕЕ "М.В. Ломоносов" – Всички права запазени.</p>
+        </footer>
+    </div>
+
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-to-top">↑</button>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('sideMenu');
+            const content = document.getElementById('contentWrapper');
+            menu.classList.toggle('show');
+            content.classList.toggle('blurred');
+        }
+
+        window.onscroll = function() {
+            const btn = document.querySelector('.scroll-to-top');
+            if (btn) {
+                btn.style.display = window.scrollY > 100 ? 'block' : 'none';
+            }
+        };
+    </script>
+</body>
+</html>

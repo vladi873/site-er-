@@ -1,0 +1,61 @@
+<!-- Видеа: videos.html -->
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Видеа | Erasmus+ ПГЕЕ "М.В. Ломоносов"</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="logo-placeholder.png" alt="Лого" class="logo">
+            <h1>Програма Erasmus+</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="gallery.html">Галерия</a></li>
+                <li><a href="presentations.html">Презентации</a></li>
+                <li><a href="videos.html" class="active">Видеа</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="video-intro">
+            <h2>Видео моменти от нашите проекти</h2>
+            <p>Насладете се на вдъхновяващи кадри от нашите дейности в чужбина.</p>
+        </section>
+
+        <section class="video-grid">
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 ПГЕЕ "М.В. Ломоносов" – Всички права запазени.</p>
+    </footer>
+
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-to-top">↑</button>
+
+    <script>
+        window.onscroll = function() {
+            const btn = document.querySelector('.scroll-to-top');
+            if (btn) {
+                btn.style.display = window.scrollY > 100 ? 'block' : 'none';
+            }
+        };
+    </script>
+</body>
+</html>
