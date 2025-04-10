@@ -21,6 +21,7 @@
 
         .content-wrapper {
             transition: filter 0.3s ease;
+            
         }
 
         .blurred {
@@ -29,13 +30,14 @@
 
         .navbar {
             background-color: #003366;
-            padding: 1rem;
+            padding: 1,5rem;
             color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             position: relative;
+            
         }
 
         .logo-container {
@@ -51,6 +53,50 @@
         .logo-container h1 {
             font-size: 2rem;
         }
+
+        .hero {
+    background-color: #003366;
+    color: white;
+    padding: 3rem;
+    border-radius: 20px; /* Заобляне на ъглите на самата секция */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Лека сянка за по-елегантен ефект */
+    text-align: center;
+    margin-bottom: 2rem;
+
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+    background-color: #0055aa;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px; /* Заобляне на бутона */
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #003366; /* Леко променяне на цвета при hover */
+}
+
 
         nav ul {
             list-style: none;
@@ -88,6 +134,7 @@
             height: 3px;
             background-color: white;
             margin: 4px 0;
+            
         }
 
         .side-menu {
@@ -104,19 +151,85 @@
             transition: right 0.3s ease;
             z-index: 1000;
         }
+        .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.feature {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 15px; /* Заобляне на ъглите */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Лека сянка */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px); /* Леко издигане при hover */
+}
+
+.feature img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px; /* Заобляне на ъглите на снимките */
+    margin-bottom: 1rem;
+}
+
+.feature h3 {
+    color: #003366;
+    margin-bottom: 0.5rem;
+}
+
+.feature p {
+    color: #666;
+    line-height: 1.5;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    background-color: white; /* Фон на контейнера */
+    border-radius: 20px; /* Заобляне на ъглите */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Лека сянка */
+    margin: 2rem auto; /* Разстояние от други елементи */
+    max-width: 1200px; /* Ограничаване ширината */
+}
 
         .side-menu.show {
             right: 0;
         }
 
+        .side-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    height: 100vh;
+    width: 250px;
+    background-color: #003366;
+    padding: 5rem 1rem 1rem; /* Променено: 5rem отгоре */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Увеличено разстояние между елементите */
+    transition: right 0.3s ease;
+    z-index: 1000;
+}
         .side-menu a {
             color: white;
             text-decoration: none;
             font-weight: 600;
+            padding: 0.5rem 0,5rem; /* Добавено: padding за по-добър вид */
+            border-radius: 5px; /* Заобляне на ъглите */
+            transition: background-color 0.3s ease; /* Преход при hover */
         }
 
         main {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .presentation-intro {
@@ -229,13 +342,16 @@
         <nav>
             <ul class="main-menu">
                 <li><a href="index.html">Начало</a></li>
-                <li><a href="gallery.html" class="active">Галерия</a></li>
+                <li><a href="about.html">За нас</a></li> <!-- Добавен нов линк -->
+                <li><a href="gallery.html">Галерия</a></li>
                 <li><a href="presentations.html">Презентации</a></li>
                 <li><a href="videos.html">Видеа</a></li>
             </ul>
+        
             <div class="side-menu" id="sideMenu">
                 <a href="index.html">Начало</a>
-                <a href="gallery.html" class="active">Галерия</a>
+                <a href="about.html">За нас</a> <!-- Добавен нов линк -->
+                <a href="gallery.html">Галерия</a>
                 <a href="presentations.html">Презентации</a>
                 <a href="videos.html">Видеа</a>
             </div>

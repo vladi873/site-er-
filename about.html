@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>За нас | Erasmus+ ПГЕЕ "М.В. Ломоносов"</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Основни стилове */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .content-wrapper {
+            transition: filter 0.3s ease;
+        }
+
+        /* Навбар */
+        .navbar {
+          background-color: #003366;
+            padding: 1,5rem;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+            
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background-color: #0055aa;
+            border-radius: 5px;
+        }
+
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        /* Основно съдържание */
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Секция "За нас" */
+        .about-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .about-section h1 {
+            color: #003366;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .social-icons {
+            margin-top: 0.5rem;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .social-icons a:hover {
+            color: #ddd;
+        }
+
+        .mission-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .mission-card {
+            background-color: #f0f7ff;
+            border-radius: 10px;
+            padding: 2rem;
+            border-left: 5px solid #003366;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #003366;
+            margin-bottom: 1rem;
+        }
+
+        /* Футер */
+        footer {
+          background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Адаптивен дизайн */
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="Designer.jpg" alt="Лого" class="logo">
+            <h1>Програма Erasmus+</h1>
+        </div>
+        <nav>
+            <ul class="main-menu">
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="about.html" class="active">За нас</a></li>
+                <li><a href="gallery.html">Галерия</a></li>
+                <li><a href="presentations.html">Презентации</a></li>
+                <li><a href="videos.html">Видеа</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content-wrapper">
+        <main>
+            <section class="about-section">
+                <h1>За нас</h1>
+                
+                <p>Ние сме част от ПГЕЕ "М.В. Ломоносов" и сме посветени на предоставянето на висококачествени образователни възможности чрез програма Erasmus+. Нашата мисия е да подпомагаме учениците и преподавателите в тяхното професионално и личностно развитие.</p>
+                
+                <h2>Нашата мисия</h2>
+                <div class="mission-cards">
+                    <div class="mission-card">
+                        <h3>Образование</h3>
+                        <p>Предоставяме иновативни образователни програми, които отговарят на нуждите на съвременния пазар на труда.</p>
+                    </div>
+                    <div class="mission-card">
+                        <h3>Мобилност</h3>
+                        <p>Подпомагаме международния обмен на знания и опит между ученици и преподаватели.</p>
+                    </div>
+                    <div class="mission-card">
+                        <h3>Развитие</h3>
+                        <p>Създаваме условия за професионално и личностно израстване в международна среда.</p>
+                    </div>
+                </div>
+
+                <h2>Нашият екип</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="team1.jpg" alt="">
+                        <h3>име</h3>
+                        <p>длъжност</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="team2.jpg" alt="">
+                        <h3>име</h3>
+                        <p>длъжност</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="team3.jpg" alt="">
+                        <h3>име</h3>
+                        <p>длъжност</p>
+                    </div>
+                    
+                    
+                      <div class="team-member">
+                          <img src="team4.jpg" alt="">
+                          <h3>име</h3>
+                          <p>длъжност</p>
+                      </div>
+                      <div class="team-member">
+                        <img src="team5.jpg" alt="">
+                        <h3>име</h3>
+                        <p>длъжност</p>
+                    </div>
+                    <div class="team-member">
+                      <img src="team.jpg" alt="">
+                      <h3>име</h3>
+                      <p>длъжност</p>
+                  </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 ПГЕЕ "М.В. Ломоносов" – Всички права запазени.</p>
+            <div class="social-icons">
+              <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+              <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          </div>
+        </footer>
+    </div>
+</body>
+</html>
