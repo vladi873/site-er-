@@ -1,359 +1,342 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Erasmus+ ПГЕЕ "М.В. Ломоносов"</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
+        /* Основни стилове */
         * {
             box-sizing: border-box;
         }
-
         body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
             background-color: #f9f9f9;
             color: #333;
+            line-height: 1.6;
         }
-
         .content-wrapper {
             transition: filter 0.3s ease;
-            
         }
-
         .blurred {
             filter: blur(2px);
+            pointer-events: none;
+            user-select: none;
         }
 
+        /* Навигация */
         .navbar {
             background-color: #003366;
-            padding: 1,5rem;
+            padding: 1rem;
             color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            position: relative;
-            
+            top: 0;
+            position: sticky;
+            z-index: 1000;
         }
-
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-
-        .logo {
-            height: 40px;
-        }
-
-        .logo-container h1 {
-            font-size: 2rem;
-        }
-
-        .hero {
-    background-color: #003366;
-    color: white;
-    padding: 3rem;
-    border-radius: 20px; /* Заобляне на ъглите на самата секция */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Лека сянка за по-елегантен ефект */
-    text-align: center;
-    margin-bottom: 2rem;
-
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    
-}
-
-.hero h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    
-}
-
-.hero p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-}
-
-.btn-primary {
-    background-color: #0055aa;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px; /* Заобляне на бутона */
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #003366; /* Леко променяне на цвета при hover */
-}
-
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
             gap: 15px;
         }
-
-        nav ul li a {
+        .logo {
+            height: 50px;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        nav ul.main-menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+        }
+        nav ul.main-menu li a {
             color: white;
             text-decoration: none;
-            font-weight: 600;
-            padding: 0.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul.main-menu li a:hover {
+            color: #ffd700;
         }
 
-        nav ul li a.active,
-        nav ul li a:hover {
-            background-color: #0055aa;
-            border-radius: 5px;
-        }
-
+        /* Mobile menu toggle */
         .menu-toggle {
             display: none;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            gap: 5px;
             cursor: pointer;
-            padding: 0.5rem;
-            z-index: 1001;
         }
-
         .menu-toggle div {
             width: 25px;
             height: 3px;
-            background-color: white;
-            margin: 4px 0;
-            
+            background: white;
+            border-radius: 3px;
         }
-
+        /* Side menu for mobile */
         .side-menu {
-            position: fixed;
-            top: 0;
-            right: -250px;
-            height: 100vh;
-            width: 250px;
-            background-color: #003366;
-            padding: 2rem 1rem;
-            display: flex;
+            display: none;
             flex-direction: column;
-            gap: 1rem;
-            transition: right 0.3s ease;
-            z-index: 1000;
-        }
-        .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-}
-
-.feature {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 15px; /* Заобляне на ъглите */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Лека сянка */
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.feature:hover {
-    transform: translateY(-5px); /* Леко издигане при hover */
-}
-
-.feature img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px; /* Заобляне на ъглите на снимките */
-    margin-bottom: 1rem;
-}
-
-.feature h3 {
-    color: #003366;
-    margin-bottom: 0.5rem;
-}
-
-.feature p {
-    color: #666;
-    line-height: 1.5;
-}
-
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-    background-color: white; /* Фон на контейнера */
-    border-radius: 20px; /* Заобляне на ъглите */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Лека сянка */
-    margin: 2rem auto; /* Разстояние от други елементи */
-    max-width: 1200px; /* Ограничаване ширината */
-}
-
-        .side-menu.show {
+            background-color: #003366;
+            position: fixed;
+            top: 60px;
             right: 0;
+            width: 200px;
+            height: calc(100% - 60px);
+            padding: 20px;
+            gap: 15px;
+            z-index: 2000;
         }
-
-        .side-menu {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    height: 100vh;
-    width: 250px;
-    background-color: #003366;
-    padding: 5rem 1rem 1rem; /* Променено: 5rem отгоре */
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem; /* Увеличено разстояние между елементите */
-    transition: right 0.3s ease;
-    z-index: 1000;
-}
+        .side-menu.show {
+            display: flex;
+        }
         .side-menu a {
             color: white;
             text-decoration: none;
             font-weight: 600;
-            padding: 0.5rem 0,5rem; /* Добавено: padding за по-добър вид */
-            border-radius: 5px; /* Заобляне на ъглите */
-            transition: background-color 0.3s ease; /* Преход при hover */
+            font-size: 1.1rem;
+        }
+        .side-menu a:hover {
+            color: #ffd700;
         }
 
-        main {
-            padding: 1.5rem;
-        }
-
-        .presentation-intro {
+        /* Hero section */
+        .hero {
+            background: url('hero-bg.jpg') center center/cover no-repeat;
+            color: white;
             text-align: center;
-            margin-bottom: 2rem;
+            padding: 5rem 1rem;
+            background-color: #003366;
+        }
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .btn-primary {
+            background-color: #ffd700;
+            color: #003366;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #e6c200;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            background-color: #ddd;
-            height: 200px;
+                /* Logos section */
+        .logos-section {
+            background: #00336650;
+            padding: 1rem 0;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-weight: bold;
-            border-radius: 10px;
         }
 
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            max-width: 100%;
+        }
+
+        .logos-container img {
+            max-height: 70px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+
+        .logos-container img:hover {
+            filter: none;
+        }
+
+
+        /* Features grid */
+        .features {
+            margin: 2rem auto;
+            display: grid;
+            place-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1100px;
+        }
+        .feature {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        .feature img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .feature h3 {
+            color: #003366;
+            margin-bottom: 0.7rem;
+            font-weight: 600;
+        }
+        .feature p {
+            color: #666;
+            line-height: 1.4;
+            font-size: 0.95rem;
+            /* Скрит в картите, ще показваме в модала */
+            display: none;
+        }
+
+        /* Footer */
         footer {
             background-color: #003366;
             color: white;
             text-align: center;
             padding: 1rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
         }
-
         .social-icons {
-            margin-top: 0.5rem;
+            margin-top: 8px;
         }
-
         .social-icons a {
             color: white;
             margin: 0 10px;
-            text-decoration: none;
             font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s;
         }
-
         .social-icons a:hover {
-            color: #ddd;
+            color: #ffd700;
         }
 
+        /* Модален прозорец стилове */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal.show {
+            display: flex;
+        }
+        .modal-content {
+            background: #fff;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 25px 30px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            user-select: none;
+            transition: color 0.2s ease;
+        }
+        .modal-close:hover {
+            color: #000;
+        }
+
+        /* Бутон за скрол до горе */
         .scroll-to-top {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            font-size: 20px;
+            bottom: 30px;
+            right: 30px;
             background-color: #003366;
             color: white;
             border: none;
+            padding: 12px 16px;
+            font-size: 20px;
             border-radius: 50%;
-            display: none;
             cursor: pointer;
+            display: none;
+            z-index: 10000;
+            transition: background-color 0.3s;
+        }
+        .scroll-to-top:hover {
+            background-color: #ffd700;
+            color: #003366;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             nav ul.main-menu {
                 display: none;
             }
-
             .menu-toggle {
                 display: flex;
             }
-
-            .logo-container h1 {
-                font-size: 1.5rem;
-            }
-
-            .presentation-intro h2 {
-                font-size: 1.5rem;
-            }
-
-            .presentation-intro p {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-container h1 {
-                font-size: 1.25rem;
-            }
-
-            .presentation-intro h2 {
-                font-size: 1.25rem;
-            }
-
-            .presentation-intro p {
-                font-size: 0.9rem;
-            }
         }
     </style>
-
 </head>
 <body>
     <header class="navbar">
         <div class="logo-container">
-            <img src="Designer.jpg" alt="Лого" class="logo">
+            <img src="pgeelomonsov.png" alt="Лого" class="logo" />
             <h1>Програма Erasmus+</h1>
         </div>
         <div class="menu-toggle" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
+            <div></div><div></div><div></div>
         </div>
         <nav>
             <ul class="main-menu">
                 <li><a href="index.html">Начало</a></li>
-                <li><a href="about.html">За нас</a></li> <!-- Добавен нов линк -->
+                <li><a href="about.html">За нас</a></li>
                 <li><a href="gallery.html">Галерия</a></li>
                 <li><a href="presentations.html">Презентации</a></li>
                 <li><a href="videos.html">Видеа</a></li>
+                <li><a href="Rimini.html">Римини</a></li>
+                <li><a href="Malaga.html">Малага</a></li>
             </ul>
-        
             <div class="side-menu" id="sideMenu">
                 <a href="index.html">Начало</a>
-                <a href="about.html">За нас</a> <!-- Добавен нов линк -->
+                <a href="about.html">За нас</a>
                 <a href="gallery.html">Галерия</a>
                 <a href="presentations.html">Презентации</a>
                 <a href="videos.html">Видеа</a>
+                <a href="Rimini.html">Римини</a>
+                <a href="Malaga.html">Малага</a>
             </div>
         </nav>
     </header>
@@ -363,24 +346,36 @@
             <section class="hero">
                 <div class="hero-content">
                     <h2>Открий света с Erasmus+</h2>
-                    <p>Разширете хоризонтите си чрез международен опит и професионално развитие.</p>
+                    <p>„Иновативните учители - успяващите ученици”</p>
                     <a href="gallery.html" class="btn-primary">Разгледай снимки</a>
                 </div>
             </section>
 
+            <section class="logos-section">
+                <div class="logos-container">
+                    <img src="italy.png" alt="Лого Италия" />
+                    <img src="EU.jpg" alt="Лого ЕС" />
+                    <img src="ЦРЧР.jpg" alt="Лого ЦРЧР" />
+                    <img src="erazam.png" alt="Лого СФЕС" />
+                    <img src="sistema turismo.png" alt="Лого туризъм" />
+                    <img src="bulgria.png" alt="Знаме България" />
+                    <img src="pgeelomonsov.png" alt="Лого ПГЕЕ" />
+                </div>
+            </section>
+
             <section class="features">
-                <div class="feature">
-                    <img src="Mobility-rb.jpg" alt="Мобилност">
+                <div class="feature" data-title="Мобилност" data-text="Участието в мобилности чрез програмата Erasmus+ предоставя възможност за реално обучение в чужбина. Учениците се включват в практически стажове, придобиват международен опит и развиват езикови и професионални умения. Програмите обхващат различни страни, с подкрепа от водещи компании и образователни институции в Европа.">
+                    <img src="Mobility-rb.jpg" alt="Мобилност" />
                     <h3>Мобилност</h3>
                     <p>Обучения и практики в чужбина за реален опит и нови умения.</p>
                 </div>
-                <div class="feature">
-                    <img src="placeholder2.jpg" alt="Обучения">
+                <div class="feature" data-title="Обучения" data-text="Нашите сертифицирани програми предлагат доказана стойност в целия ЕС. Участниците получават знания и умения, които са признати и високо ценени.">
+                    <img src="placeholder2.jpg" alt="Обучения" />
                     <h3>Обучения</h3>
                     <p>Сертифицирани програми с доказана стойност в ЕС.</p>
                 </div>
-                <div class="feature">
-                    <img src="placeholder3.jpg" alt="Културен обмен">
+                <div class="feature" data-title="Културен обмен" data-text="Изграждаме мостове между различни култури и общества чрез обмен на идеи, традиции и опит, стимулирайки разбирателство и толерантност.">
+                    <img src="placeholder3.jpg" alt="Културен обмен" />
                     <h3>Културен обмен</h3>
                     <p>Изграждаме мостове между различни култури и общества.</p>
                 </div>
@@ -390,16 +385,26 @@
         <footer>
             <p>© 2025 ПГЕЕ "М.В. Ломоносов" – Всички права запазени.</p>
             <div class="social-icons">
-                <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@m.v.lomonosov" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/pgee.lomonosov.go?igsh=emZ1M3N0cWQzbTlj" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
             </div>
         </footer>
     </div>
 
-    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-to-top">↑</button>
+    <!-- Модален прозорец -->
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalText">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Затвори">&times;</button>
+            <h2 id="modalTitle"></h2>
+            <p id="modalText"></p>
+        </div>
+    </div>
+
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-to-top" aria-label="Връщане нагоре">↑</button>
 
     <script>
+        // Менюто за мобилни устройства
         function toggleMenu() {
             const menu = document.getElementById('sideMenu');
             const content = document.getElementById('contentWrapper');
@@ -407,12 +412,50 @@
             content.classList.toggle('blurred');
         }
 
-        window.onscroll = function() {
+        // Показване и скриване на бутон за скрол до горе
+        window.onscroll = function () {
             const btn = document.querySelector('.scroll-to-top');
-            if (btn) {
-                btn.style.display = window.scrollY > 100 ? 'block' : 'none';
-            }
+            btn.style.display = window.scrollY > 100 ? 'block' : 'none';
         };
+
+        // Модален прозорец
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalText = document.getElementById('modalText');
+        const modalClose = document.getElementById('modalClose');
+        const contentWrapper = document.getElementById('contentWrapper');
+
+        document.querySelectorAll('.feature').forEach(feature => {
+            feature.addEventListener('click', () => {
+                modalTitle.textContent = feature.getAttribute('data-title');
+                modalText.textContent = feature.getAttribute('data-text');
+                modal.classList.add('show');
+                contentWrapper.classList.add('blurred');
+                // Фокус върху бутона за затваряне за достъпност
+                modalClose.focus();
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('show');
+            contentWrapper.classList.remove('blurred');
+        });
+
+        // Затваряне при клик извън съдържанието
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+                contentWrapper.classList.remove('blurred');
+            }
+        });
+
+        // Затваряне с клавиша Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape" && modal.classList.contains('show')) {
+                modal.classList.remove('show');
+                contentWrapper.classList.remove('blurred');
+            }
+        });
     </script>
 </body>
 </html>
