@@ -356,17 +356,33 @@
 
             <section class="gallery-grid">
                 <!-- Rimini Images -->
-                <script>
-                    for (let i = 1; i <= 144; i++) {
-                        document.write(`
+                
+                   <script>
+                // Първа галерия: photo-rimini (снимки от 1 до 99)
+                for (let i = 1; i <= 99; i++) {
+                    document.write(`
                         <div class="gallery-item" data-category="Rimini">
-                        <a href="photo rimini/${i}.jpg" data-fancybox="gallery" data-caption="">
-                            <img src="photo rimini/${i}.jpg" alt="">
-                            <div class="image-caption"></div>
-                        </a>
-                        </div>`);
-                    }
-                </script>
+                            <a href="photo-rimini/${i}.jpg" data-fancybox="gallery" data-caption="Снимка ${i} от Rimini">
+                                <img src="photo-rimini/${i}.jpg" alt="Снимка ${i}">
+                                <div class="image-caption">Снимка ${i}</div>
+                            </a>
+                        </div>
+                    `);
+                }
+
+                // Втора галерия: photo-rimini-2 (снимки от 1 до 44)
+                for (let i = 102; i <= 144; i++) {
+                    document.write(`
+                        <div class="gallery-item" data-category="Rimini">
+                            <a href="photo-rimini-2/${i}.jpg" data-fancybox="gallery" data-caption="Снимка ${i} от Rimini 2">
+                                <img src="photo-rimini-2/${i}.jpg" alt="Снимка ${i}">
+                                <div class="image-caption">Снимка ${i}</div>
+                            </a>
+                        </div>
+                    `);
+                }
+                    </script>
+
 
                 
                 <!-- Malaga Images -->
