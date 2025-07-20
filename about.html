@@ -25,17 +25,34 @@
             transition: filter 0.3s ease;
         }
 
+        .blurred {
+            filter: blur(2px);
+        }
+
         /* Навбар */
         .navbar {
-          background-color: #003366;
-            padding: 1,5rem;
+            background-color: #003366;
+            padding: 1rem;
             color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             position: relative;
-            
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .logo-container h1 {
+            font-size: 2rem;
         }
 
         nav ul {
@@ -59,20 +76,54 @@
             border-radius: 5px;
         }
 
-        
-        .logo-container {
-            display: flex;
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 10px;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
         }
 
-        .logo {
-            height: 40px;
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100vh;
+            width: 250px;
+            background-color: #003366;
+            padding: 5rem 1rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+
+        .side-menu.show {
+            right: 0;
+        }
+
+        .side-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
         /* Основно съдържание */
         main {
-            padding: 2rem;
+            padding: 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -91,21 +142,6 @@
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             text-align: center;
-        }
-
-        .social-icons {
-            margin-top: 0.5rem;
-        }
-
-        .social-icons a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 1.5rem;
-        }
-
-        .social-icons a:hover {
-            color: #ddd;
         }
 
         .mission-cards {
@@ -144,17 +180,64 @@
 
         /* Футер */
         footer {
-          background-color: #003366;
+            background-color: #003366;
             color: white;
             text-align: center;
             padding: 1rem;
             margin-top: 2rem;
         }
 
+        .social-icons {
+            margin-top: 0.5rem;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .social-icons a:hover {
+            color: #ddd;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            font-size: 20px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: none;
+            cursor: pointer;
+        }
+
         /* Адаптивен дизайн */
         @media (max-width: 768px) {
+            nav ul.main-menu {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .logo-container h1 {
+                font-size: 1.5rem;
+            }
+
             .about-section {
                 padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container h1 {
+                font-size: 1.25rem;
             }
         }
     </style>
@@ -162,8 +245,13 @@
 <body>
     <header class="navbar">
         <div class="logo-container">
-            <img src="Designer.jpg" alt="Лого" class="logo">
+            <img src="pgeelomonsov.png" alt="Лого" class="logo">
             <h1>Програма Erasmus+</h1>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
         <nav>
             <ul class="main-menu">
@@ -172,11 +260,23 @@
                 <li><a href="gallery.html">Галерия</a></li>
                 <li><a href="presentations.html">Презентации</a></li>
                 <li><a href="videos.html">Видеа</a></li>
+                <li><a href="Rimini.html">Римини</a></li>
+                <li><a href="Malaga.html">Малага</a></li>
+
             </ul>
+            <div class="side-menu" id="sideMenu">
+                <a href="index.html">Начало</a>
+                <a href="about.html" class="active">За нас</a>
+                <a href="gallery.html">Галерия</a>
+                <a href="presentations.html">Презентации</a>
+                <a href="videos.html">Видеа</a>
+                <a href="Rimini.html">Римини</a>
+                <a href="Malaga.html">Малага</a>
+            </div>
         </nav>
     </header>
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" id="contentWrapper">
         <main>
             <section class="about-section">
                 <h1>За нас</h1>
@@ -217,34 +317,49 @@
                         <p>длъжност</p>
                     </div>
                     
-                    
-                      <div class="team-member">
-                          <img src="team4.jpg" alt="">
-                          <h3>име</h3>
-                          <p>длъжност</p>
-                      </div>
-                      <div class="team-member">
+                    <div class="team-member">
+                        <img src="team4.jpg" alt="">
+                        <h3>име</h3>
+                        <p>длъжност</p>
+                    </div>
+                    <div class="team-member">
                         <img src="team5.jpg" alt="">
                         <h3>име</h3>
                         <p>длъжност</p>
                     </div>
                     <div class="team-member">
-                      <img src="team.jpg" alt="">
-                      <h3>име</h3>
-                      <p>длъжност</p>
-                  </div>
+                        <img src="team.jpg" alt="">
+                        <h3>име</h3>
+                        <p>длъжност</p>
+                    </div>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>© 2025 ПГЕЕ "М.В. Ломоносов" – Всички права запазени.</p>
+            <p>© 2025 ПГЕЕ "М.В. Ломоносов" - Всички права запазени.</p>
             <div class="social-icons">
-              <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-              <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-          </div>
+                <a href="https://www.tiktok.com/@m.v.lomonosov" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/pgee.lomonosov.go?igsh=emZ1M3N0cWQzbTlj" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61552596358136" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
         </footer>
     </div>
+
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-to-top">↑</button>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('sideMenu');
+            const content = document.getElementById('contentWrapper');
+            menu.classList.toggle('show');
+            content.classList.toggle('blurred');
+        }
+
+        window.onscroll = function () {
+            const btn = document.querySelector('.scroll-to-top');
+            btn.style.display = window.scrollY > 100 ? 'block' : 'none';
+        };
+    </script>
 </body>
 </html>
