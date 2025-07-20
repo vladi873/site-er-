@@ -1,12 +1,11 @@
-<!-- Презентации: presentations.html -->
 <!DOCTYPE html>
 <html lang="bg">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Презентации | Erasmus+ ПГЕЕ "М.В. Ломоносов"</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         * {
             box-sizing: border-box;
@@ -17,6 +16,7 @@
             font-family: 'Montserrat', sans-serif;
             background-color: #f9f9f9;
             color: #333;
+            line-height: 1.6;
         }
 
         .content-wrapper {
@@ -27,6 +27,7 @@
             filter: blur(2px);
         }
 
+        /* Навбар - запазен като в примерния код */
         .navbar {
             background-color: #003366;
             padding: 1rem;
@@ -97,10 +98,10 @@
             height: 100vh;
             width: 250px;
             background-color: #003366;
-            padding: 2rem 1rem;
+            padding: 5rem 1rem 1rem;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.5rem;
             transition: right 0.3s ease;
             z-index: 1000;
         }
@@ -113,32 +114,116 @@
             color: white;
             text-decoration: none;
             font-weight: 600;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
+        .side-menu a:hover {
+            background-color: #0055aa;
+        }
+
+        /* Стилове за презентациите */
         main {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
-        .presentation-intro {
+        .presentations-header {
             text-align: center;
+            background-color: #003366;
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
         }
 
-        .presentation-embed iframe {
-            width: 100%;
-            height: 80vh;
-            max-width: 1200px;
-            border: none;
-            display: block;
-            margin: 0 auto;
+        .presentations-header h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
 
+        .presentations-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .presentation-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .presentation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .presentation-image {
+            height: 200px;
+            background-color: #0055aa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .presentation-info {
+            padding: 1.5rem;
+        }
+
+        .presentation-info h3 {
+            color: #003366;
+            margin-bottom: 0.5rem;
+        }
+
+        .presentation-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background-color: #0055aa;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background-color: #003366;
+        }
+
+        /* Футър - запазен като в примерния код */
         footer {
             background-color: #003366;
             color: white;
             text-align: center;
             padding: 1rem;
             margin-top: 2rem;
+        }
+
+        .social-icons {
+            margin-top: 0.5rem;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .social-icons a:hover {
+            color: #ddd;
         }
 
         .scroll-to-top {
@@ -167,18 +252,6 @@
             .logo-container h1 {
                 font-size: 1.5rem;
             }
-
-            .presentation-intro h2 {
-                font-size: 1.5rem;
-            }
-
-            .presentation-intro p {
-                font-size: 1rem;
-            }
-
-            .presentation-embed iframe {
-                height: 60vh;
-            }
         }
 
         @media (max-width: 480px) {
@@ -186,64 +259,128 @@
                 font-size: 1.25rem;
             }
 
-            .presentation-intro h2 {
-                font-size: 1.25rem;
-            }
-
-            .presentation-intro p {
-                font-size: 0.9rem;
-            }
-
-            .presentation-embed iframe {
-                height: 50vh;
+            .presentations-header h1 {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo-container">
-            <img src="logo-placeholder.png" alt="Лого" class="logo">
-            <h1>Програма Erasmus+</h1>
-        </div>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <nav>
-            <ul class="main-menu">
-                <li><a href="index.html">Начало</a></li>
-                <li><a href="gallery.html">Галерия</a></li>
-                <li><a href="presentations.html" class="active">Презентации</a></li>
-                <li><a href="videos.html">Видеа</a></li>
-            </ul>
-            <div class="side-menu" id="sideMenu">
-                <a href="index.html">Начало</a>
-                <a href="gallery.html">Галерия</a>
-                <a href="presentations.html" class="active">Презентации</a>
-                <a href="videos.html">Видеа</a>
-            </div>
-        </nav>
-    </header>
-
     <div class="content-wrapper" id="contentWrapper">
+        <header class="navbar">
+            <div class="logo-container">
+                <img src="pgeelomonsov.png" alt="Лого" class="logo">
+                <h1>Програма Erasmus+</h1>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html">Начало</a></li>
+                    <li><a href="about.html">За нас</a></li>
+                    <li><a href="gallery.html">Галерия</a></li>
+                    <li><a href="presentations.html" class="active">Презентации</a></li>
+                    <li><a href="videos.html">Видеа</a></li>
+                    <li><a href="cork.html">Корк</a></li>
+                    <li><a href="Malaga.html">Малага</a></li>
+                </ul>
+                <div class="side-menu" id="sideMenu">
+                    <a href="index.html">Начало</a>
+                    <a href="about.html">За нас</a>
+                    <a href="gallery.html">Галерия</a>
+                    <a href="presentations.html" class="active">Презентации</a>
+                    <a href="videos.html">Видеа</a>
+                    <a href="cork.html">Корк</a>
+                    <a href="Malaga.html">Малага</a>
+                </div>
+            </nav>
+        </header>
+
         <main>
-            <section class="presentation-intro">
-                <h2>Материали от проекта</h2>
-                <p>Презентации и документи, представящи дейности по проекта Erasmus+.</p>
+            <section class="presentations-header">
+                <h1>Презентации</h1>
+                <p>Разгледайте нашите учебни материали и презентации от проектите</p>
             </section>
 
-            <section class="presentation-embed">
-                <iframe 
-                    src="https://drive.google.com/file/d/1Sl-C0E6rFg-T24gEX_5semmqDSA9qzHn/preview" 
-                    allow="autoplay">
-                </iframe>
+            <section class="presentations-container">
+                <div class="presentation-card">
+                    <div class="presentation-image">
+                        <i class="far fa-file-powerpoint"></i>
+                    </div>
+                    <div class="presentation-info">
+                        <h3>Erasmus+ Въведение</h3>
+                        <p>Основна информация за програмата Erasmus+ и нейните възможности</p>
+                        <a href="presentations/erasmus-intro.pptx" class="btn-download">Изтегли</a>
+                    </div>
+                </div>
+
+                <div class="presentation-card">
+                    <div class="presentation-image">
+                        <i class="far fa-file-powerpoint"></i>
+                    </div>
+                    <div class="presentation-info">
+                        <h3>Корк, Ирландия</h3>
+                        <p>Презентация за престоя и обучението в Корк, Ирландия</p>
+                        <a href="presentations/cork-presentation.pptx" class="btn-download">Изтегли</a>
+                    </div>
+                </div>
+
+                <div class="presentation-card">
+                    <div class="presentation-image">
+                        <i class="far fa-file-powerpoint"></i>
+                    </div>
+                    <div class="presentation-info">
+                        <h3>Малага, Испания</h3>
+                        <p>Презентация за престоя и обучението в Малага, Испания</p>
+                        <a href="presentations/malaga-presentation.pptx" class="btn-download">Изтегли</a>
+                    </div>
+                </div>
+
+                <div class="presentation-card">
+                    <div class="presentation-image">
+                        <i class="far fa-file-powerpoint"></i>
+                    </div>
+                    <div class="presentation-info">
+                        <h3>Културен обмен</h3>
+                        <p>Презентация за културните преживявания и обмени</p>
+                        <a href="presentations/cultural-exchange.pptx" class="btn-download">Изтегли</a>
+                    </div>
+                </div>
+
+                <div class="presentation-card">
+                    <div class="presentation-image">
+                        <i class="far fa-file-powerpoint"></i>
+                    </div>
+                    <div class="presentation-info">
+                        <h3>Професионални умения</h3>
+                        <p>Придобити професионални умения и знания</p>
+                        <a href="presentations/professional-skills.pptx" class="btn-download">Изтегли</a>
+                    </div>
+                </div>
+
+                <div class="presentation-card">
+                    <div class="presentation-image">
+                        <i class="far fa-file-powerpoint"></i>
+                    </div>
+                    <div class="presentation-info">
+                        <h3>Заключителна презентация</h3>
+                        <p>Обобщение на придобитите знания и умения</p>
+                        <a href="presentations/final-presentation.pptx" class="btn-download">Изтегли</a>
+                    </div>
+                </div>
             </section>
         </main>
 
         <footer>
-            <p>© 2025 ПГЕЕ "М.В. Ломоносов" – Всички права запазени.</p>
+            <p>© 2025 ПГЕЕ "М.В. Ломоносов" - Всички права запазени.</p>
+            <div class="social-icons">
+                <a href="https://www.tiktok.com/@m.v.lomonosov" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/pgee.lomonosov.go?igsh=emZ1M3N0cWQzbTlj" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
         </footer>
     </div>
 
@@ -257,11 +394,9 @@
             content.classList.toggle('blurred');
         }
 
-        window.onscroll = function() {
+        window.onscroll = function () {
             const btn = document.querySelector('.scroll-to-top');
-            if (btn) {
-                btn.style.display = window.scrollY > 100 ? 'block' : 'none';
-            }
+            btn.style.display = window.scrollY > 100 ? 'block' : 'none';
         };
     </script>
 </body>

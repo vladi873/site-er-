@@ -1,4 +1,3 @@
-<!-- Видеа: videos.html -->
 <!DOCTYPE html>
 <html lang="bg">
 <head>
@@ -7,55 +6,429 @@
     <title>Видеа | Erasmus+ ПГЕЕ "М.В. Ломоносов"</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .content-wrapper {
+            transition: filter 0.3s ease;
+        }
+
+        .blurred-content {
+            filter: blur(2px);
+        }
+
+        .navbar {
+            background-color: #003366;
+            padding: 1rem; /* Поправено от 2,8rem */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .logo-container h1 {
+            font-size: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background-color: #0055aa;
+            border-radius: 5px;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100vh;
+            width: 250px;
+            background-color: #003366;
+            padding: 5rem 1rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+
+        .side-menu.show {
+            right: 0;
+        }
+
+        .side-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        main {
+            padding: 1.5rem; /* Поправено от 1,5rem */
+        }
+
+        .presentation-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .video-item {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-item video {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+            aspect-ratio: 16/9;
+            background-color: #000;
+        }
+
+        .video-item h3 {
+            padding: 1rem;
+            margin: 0;
+            color: #003366;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* НОВ LIGHTBOX СТИЛ ЗА ВИДЕО */
+        .video-lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1002;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-lightbox-content {
+            width: 80%;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        .video-lightbox video {
+            width: 100%;
+            max-height: 80vh;
+            outline: none;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .video-lightbox.show {
+            display: flex;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icons {
+            margin-top: 0.5rem;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .social-icons a:hover {
+            color: #ddd;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            font-size: 20px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul.main-menu {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .logo-container h1 {
+                font-size: 1.5rem;
+            }
+
+            .presentation-intro h2 {
+                font-size: 1.5rem;
+            }
+
+            .presentation-intro p {
+                font-size: 1rem;
+            }
+
+            .video-lightbox-content {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container h1 {
+                font-size: 1.2rem;
+            }
+
+            .presentation-intro h2 {
+                font-size: 1.2rem;
+            }
+
+            .presentation-intro p {
+                font-size: 0.95rem;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="navbar">
         <div class="logo-container">
-            <img src="logo-placeholder.png" alt="Лого" class="logo">
+            <img src="Designer.jpg" alt="Лого" class="logo">
             <h1>Програма Erasmus+</h1>
         </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <nav>
-            <ul>
+            <ul class="main-menu">
                 <li><a href="index.html">Начало</a></li>
+                <li><a href="about.html">За нас</a></li>
                 <li><a href="gallery.html">Галерия</a></li>
                 <li><a href="presentations.html">Презентации</a></li>
                 <li><a href="videos.html" class="active">Видеа</a></li>
+                <li><a href="Rimini.html">Римини</a></li> <!-- Поправен правописен грешка в href -->
+                <li><a href="Malaga.html">Малага</a></li>
             </ul>
+            <div class="side-menu" id="sideMenu">
+                <a href="index.html">Начало</a>
+                <a href="about.html">За нас</a>
+                <a href="gallery.html">Галерия</a>
+                <a href="presentations.html">Презентации</a>
+                <a href="videos.html" class="active">Видеа</a>
+                <a href="Rimini.html">Корк</a>
+                <a href="Malaga.html">Малага</a>
+            </div>
         </nav>
     </header>
 
-    <main>
-        <section class="video-intro">
-            <h2>Видео моменти от нашите проекти</h2>
-            <p>Насладете се на вдъхновяващи кадри от нашите дейности в чужбина.</p>
-        </section>
+    <div class="content-wrapper" id="contentWrapper">
+        <main>
+            <section class="presentation-intro">
+                <h2>Видео Галерия</h2>
+                <p>Разгледайте видео клиповете от дейностите по проекта Erasmus+.</p>
+            </section>
 
-        <section class="video-grid">
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </section>
-    </main>
+            <section class="video-grid">
+                <div class="video-item" onclick="openVideoLightbox('videoplayback.mp4')">
+                    <video controls poster="video-poster1.jpg" preload="metadata">
+                        <source src="videoplayback.mp4" type="video/mp4">
+                        Вашият браузър не поддържа видео таг.
+                    </video>
+                    <h3>Заглавие на видео 1</h3>
+                </div>
+                <div class="video-item" onclick="openVideoLightbox('videos/video2.mp4')">
+                    <video controls poster="video-poster2.jpg" preload="metadata">
+                        <source src="videos/video2.mp4" type="video/mp4">
+                        Вашият браузър не поддържа видео таг.
+                    </video>
+                    <h3>Заглавие на видео 2</h3>
+                </div>
+                <div class="video-item" onclick="openVideoLightbox('videos/video3.mp4')">
+                    <video controls poster="video-poster3.jpg" preload="metadata">
+                        <source src="videos/video3.mp4" type="video/mp4">
+                        Вашият браузър не поддържа видео таг.
+                    </video>
+                    <h3>Заглавие на видео 3</h3>
+                </div>
+            </section>
+        </main>
 
-    <footer>
-        <p>© 2025 ПГЕЕ "М.В. Ломоносов" – Всички права запазени.</p>
-    </footer>
+        <footer>
+            <p>© 2025 ПГЕЕ "М.В. Ломоносов" – Всички права запазени.</p>
+            <div class="social-icons">
+                <a href="https://www.tiktok.com/@m.v.lomonosov" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- НОВ VIDEO LIGHTBOX -->
+    <div class="video-lightbox" id="videoLightbox" onclick="closeVideoLightbox(event)">
+        <div class="video-lightbox-content">
+            <span class="close-btn" onclick="closeVideoLightbox(event)">&times;</span>
+            <video controls autoplay id="lightboxVideo">
+                Вашият браузър не поддържа видео таг.
+            </video>
+        </div>
+    </div>
 
     <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-to-top">↑</button>
 
     <script>
+        function toggleMenu() {
+            const menu = document.getElementById('sideMenu');
+            const content = document.getElementById('contentWrapper');
+            menu.classList.toggle('show');
+            content.classList.toggle('blurred-content');
+        }
+
         window.onscroll = function() {
             const btn = document.querySelector('.scroll-to-top');
             if (btn) {
                 btn.style.display = window.scrollY > 100 ? 'block' : 'none';
             }
         };
+
+        // НОВИ ФУНКЦИИ ЗА VIDEO LIGHTBOX
+        function openVideoLightbox(videoSrc) {
+            const lightbox = document.getElementById('videoLightbox');
+            const videoPlayer = document.getElementById('lightboxVideo');
+            
+            // Задаваме източника на видеото
+            videoPlayer.src = videoSrc;
+            
+            // Показваме lightbox
+            lightbox.classList.add('show');
+            
+            // Спираме скрола на задния план
+            document.body.style.overflow = 'hidden';
+            
+            // Стартираме възпроизвеждането
+            videoPlayer.play();
+        }
+
+        function closeVideoLightbox(event) {
+            // Предотвратяваме затварянето при клик върху видеото
+            if (event.target.classList.contains('video-lightbox-content') || 
+                event.target.classList.contains('close-btn')) {
+                const lightbox = document.getElementById('videoLightbox');
+                const videoPlayer = document.getElementById('lightboxVideo');
+                
+                // Спираме видеото
+                videoPlayer.pause();
+                videoPlayer.currentTime = 0;
+                videoPlayer.src = '';
+                
+                // Скриваме lightbox
+                lightbox.classList.remove('show');
+                
+                // Връщаме скрола
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Затваряне с ESC клавиш
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeVideoLightbox({target: {classList: ['close-btn']}});
+            }
+        });
     </script>
 </body>
 </html>
