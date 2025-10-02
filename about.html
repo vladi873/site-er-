@@ -32,46 +32,51 @@
         /* Навбар */
         .navbar {
             background-color: #003366;
-            padding: 1rem;
+            padding: 1.5rem;
             color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             position: relative;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
 
         .logo {
             height: 40px;
         }
 
-        .logo-container h1 {
-            font-size: 2rem;
+        .navbar h1 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.2rem;
         }
 
-        nav ul {
+
+         nav ul.main-menu{
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
 
-        nav ul li a {
+        nav ul.main-menu li a {
             color: white;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             padding: 0.5rem;
         }
 
-        nav ul li a.active,
-        nav ul li a:hover {
+        nav ul.main-menu li a.active,
+        nav ul.main-menu li a:hover {
             background-color: #0055aa;
             border-radius: 5px;
         }
@@ -260,6 +265,7 @@
                 <li><a href="gallery.html">Галерия</a></li>
                 <li><a href="presentations.html">Презентации</a></li>
                 <li><a href="videos.html">Видеа</a></li>
+                <li><a href="Portugal.html">Португалия</a></li>
                 <li><a href="Rimini.html">Римини</a></li>
                 <li><a href="Malaga.html">Малага</a></li>
 
@@ -270,6 +276,7 @@
                 <a href="gallery.html">Галерия</a>
                 <a href="presentations.html">Презентации</a>
                 <a href="videos.html">Видеа</a>
+                <a href="Portugal.html">Португалия</a>
                 <a href="Rimini.html">Римини</a>
                 <a href="Malaga.html">Малага</a>
             </div>
@@ -301,34 +308,97 @@
 
                 <h2>Нашият екип</h2>
                 <div class="team-grid">
+                                     <div class="team-member">
+                        <img src="italy.png" alt="">
+                        <h3>Габриела Топалова</h3>
+                        <p>ученик</p>
+                    </div>
                     <div class="team-member">
-                        <img src="team1.jpg" alt="">
-                        <h3>име</h3>
+                        <img src="italy.png" alt="">
+                        <h3>Владислав Велков</h3>
+                        <p>ученик</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="italy.png" alt="">
+                        <h3>Алекс Манахов</h3>
+                        <p>ученик</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="italy.png" alt="">
+                        <h3>Боян Михайлов</h3>
+                        <p>длъжност</p>
+                        </div>
+                    
+                    <div class="team-member">
+                        <img src="italy.png" alt="">
+                        <h3>Владимир Бенков</h3>
+                        <p>ученик</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="italy.png" alt="">
+                        <h3>Веселин Тодоров</h3>
                         <p>длъжност</p>
                     </div>
                     <div class="team-member">
-                        <img src="team2.jpg" alt="">
-                        <h3>име</h3>
+                        <img src="italy.png" alt="">
+                        <h3>Стефан Тихов</h3>
                         <p>длъжност</p>
                     </div>
+       
                     <div class="team-member">
-                        <img src="team3.jpg" alt="">
+                        <img src="italy.png" alt="">
+                        <h3>Кристиан Георгиев</h3>
+                        <p>ученик</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="italy.png" alt="">
+                        <h3>Стоян Багалев</h3>
+                        <p>длъжност</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="italy.png" alt="">
+                        <h3>Диян Цветанов</h3>
+                        <p>ученик</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="italy.png" alt="">
+                        <h3>Кристиян Николов</h3>
+                        <p>ученик</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="italy.png" alt="">
+                        <h3>Станислав Бакърджиев</h3>
+                        <p>ученик</p>
+                    </div>
+                        <div class="team-member">
+                        <img src="Spain.svg.png" alt="">
+                        <h3>Дамян Радев</h3>
+                        <p>ученик</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="Spain.svg.png" alt="">
+                        <h3>Алекс Манахов</h3>
+                        <p>ученик</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="Spain.svg.png" alt="">
                         <h3>име</h3>
                         <p>длъжност</p>
                     </div>
                     
                     <div class="team-member">
-                        <img src="team4.jpg" alt="">
+                        <img src=".png" alt="">
                         <h3>име</h3>
                         <p>длъжност</p>
                     </div>
                     <div class="team-member">
-                        <img src="team5.jpg" alt="">
+                        <img src=".png" alt="">
                         <h3>име</h3>
                         <p>длъжност</p>
                     </div>
                     <div class="team-member">
-                        <img src="team.jpg" alt="">
+                        <img src=".png" alt="">
                         <h3>име</h3>
                         <p>длъжност</p>
                     </div>

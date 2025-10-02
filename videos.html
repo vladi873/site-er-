@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Видеа | Erasmus+ ПГЕЕ "М.В. Ломоносов"</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
@@ -29,41 +28,46 @@
 
         .navbar {
             background-color: #003366;
-            padding: 1rem; /* Поправено от 2,8rem */
+            padding: 1.5rem;
             color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             position: relative;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
 
         .logo {
             height: 40px;
         }
 
-        .logo-container h1 {
-            font-size: 2rem;
+        .navbar h1 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.2rem;
         }
+
 
         nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             padding: 0.5rem;
         }
 
@@ -115,15 +119,30 @@
             font-weight: 600;
             padding: 0.5rem;
             border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+                .side-menu a:hover {
+            background-color: #0055aa;
         }
 
         main {
-            padding: 1.5rem; /* Поправено от 1,5rem */
+            padding: 1.5rem; 
         }
 
-        .presentation-intro {
+        .presentations-header {
             text-align: center;
+            background-color: #003366;
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
+        }
+                .presentations-header h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .video-grid {
@@ -266,11 +285,11 @@
 
         @media (max-width: 480px) {
             .logo-container h1 {
-                font-size: 1.2rem;
+                font-size: 1.25rem;
             }
 
             .presentation-intro h2 {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
 
             .presentation-intro p {
@@ -284,9 +303,10 @@
     </style>
 </head>
 <body>
+    <div class="content-wrapper" id="contentWrapper">
     <header class="navbar">
         <div class="logo-container">
-            <img src="Designer.jpg" alt="Лого" class="logo">
+            <img src="pgeelomonsov.png" alt="Лого" class="logo">
             <h1>Програма Erasmus+</h1>
         </div>
         <div class="menu-toggle" onclick="toggleMenu()">
@@ -301,6 +321,7 @@
                 <li><a href="gallery.html">Галерия</a></li>
                 <li><a href="presentations.html">Презентации</a></li>
                 <li><a href="videos.html" class="active">Видеа</a></li>
+                <li><a href="Portugal.html">Португалия</a></li>
                 <li><a href="Rimini.html">Римини</a></li> <!-- Поправен правописен грешка в href -->
                 <li><a href="Malaga.html">Малага</a></li>
             </ul>
@@ -310,7 +331,8 @@
                 <a href="gallery.html">Галерия</a>
                 <a href="presentations.html">Презентации</a>
                 <a href="videos.html" class="active">Видеа</a>
-                <a href="Rimini.html">Корк</a>
+                <a href="Portugal.html">Португалия</a>
+                <a href="Rimini.html">Римини</a>
                 <a href="Malaga.html">Малага</a>
             </div>
         </nav>

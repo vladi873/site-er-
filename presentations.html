@@ -30,46 +30,51 @@
         /* Навбар - запазен като в примерния код */
         .navbar {
             background-color: #003366;
-            padding: 1rem;
+            padding: 1.5rem;
             color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             position: relative;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
 
         .logo {
             height: 40px;
         }
 
-        .logo-container h1 {
-            font-size: 2rem;
+        .navbar h1 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.2rem;
         }
 
-        nav ul {
+
+         nav ul.main-menu{
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
 
-        nav ul li a {
+        nav ul.main-menu li a {
             color: white;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             padding: 0.5rem;
         }
 
-        nav ul li a.active,
-        nav ul li a:hover {
+        nav ul.main-menu li a.active,
+        nav ul.main-menu li a:hover {
             background-color: #0055aa;
             border-radius: 5px;
         }
@@ -268,15 +273,15 @@
 <body>
     <div class="content-wrapper" id="contentWrapper">
         <header class="navbar">
-            <div class="logo-container">
-                <img src="pgeelomonsov.png" alt="Лого" class="logo">
-                <h1>Програма Erasmus+</h1>
-            </div>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+        <div class="logo-container">
+            <img src="pgeelomonsov.png" alt="Лого" class="logo">
+            <h1>Програма Erasmus+</h1>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
             <nav>
                 <ul class="main-menu">
                     <li><a href="index.html">Начало</a></li>
@@ -284,7 +289,8 @@
                     <li><a href="gallery.html">Галерия</a></li>
                     <li><a href="presentations.html" class="active">Презентации</a></li>
                     <li><a href="videos.html">Видеа</a></li>
-                    <li><a href="cork.html">Корк</a></li>
+                    <li><a href="Portugal.html">Португалия</a></li>
+                    <li><a href="Rimini.html">Римини</a></li>
                     <li><a href="Malaga.html">Малага</a></li>
                 </ul>
                 <div class="side-menu" id="sideMenu">
@@ -293,7 +299,8 @@
                     <a href="gallery.html">Галерия</a>
                     <a href="presentations.html" class="active">Презентации</a>
                     <a href="videos.html">Видеа</a>
-                    <a href="cork.html">Корк</a>
+                    <a href="Portugal.html">Португалия</a>
+                    <a href="Rimini.html">Римини</a>
                     <a href="Malaga.html">Малага</a>
                 </div>
             </nav>
@@ -311,10 +318,11 @@
                         <i class="far fa-file-powerpoint"></i>
                     </div>
                     <div class="presentation-info">
-                        <h3>Erasmus+ Въведение</h3>
-                        <p>Основна информация за програмата Erasmus+ и нейните възможности</p>
-                        <a href="presentations/erasmus-intro.pptx" class="btn-download">Изтегли</a>
+                        <h3>Португалия, Лисабон</h3>
+                        <p>Презентация за престоя и обучението в Португалия, Лисабон</p>
+                        <a href="Portugaliia_Prezentaciia.pptx" class="btn-download">Изтегли</a>
                     </div>
+
                 </div>
 
                 <div class="presentation-card">
@@ -322,9 +330,9 @@
                         <i class="far fa-file-powerpoint"></i>
                     </div>
                     <div class="presentation-info">
-                        <h3>Корк, Ирландия</h3>
-                        <p>Презентация за престоя и обучението в Корк, Ирландия</p>
-                        <a href="presentations/cork-presentation.pptx" class="btn-download">Изтегли</a>
+                        <h3>Римини, Италия</h3>
+                        <p>Презентация за престоя и обучението в Римини, Италия</p>
+                        <a href="Rimini_Italy.pptx" class="btn-download">Изтегли</a>
                     </div>
                 </div>
 
@@ -335,27 +343,17 @@
                     <div class="presentation-info">
                         <h3>Малага, Испания</h3>
                         <p>Презентация за престоя и обучението в Малага, Испания</p>
-                        <a href="presentations/malaga-presentation.pptx" class="btn-download">Изтегли</a>
+                        <a href="Malaga_posledno.pptx" class="btn-download">Изтегли</a>
                     </div>
                 </div>
+
 
                 <div class="presentation-card">
                     <div class="presentation-image">
                         <i class="far fa-file-powerpoint"></i>
                     </div>
                     <div class="presentation-info">
-                        <h3>Културен обмен</h3>
-                        <p>Презентация за културните преживявания и обмени</p>
-                        <a href="presentations/cultural-exchange.pptx" class="btn-download">Изтегли</a>
-                    </div>
-                </div>
-
-                <div class="presentation-card">
-                    <div class="presentation-image">
-                        <i class="far fa-file-powerpoint"></i>
-                    </div>
-                    <div class="presentation-info">
-                        <h3>Професионални умения</h3>
+                        <h3>Заключителна презентация Португалия</h3>
                         <p>Придобити професионални умения и знания</p>
                         <a href="presentations/professional-skills.pptx" class="btn-download">Изтегли</a>
                     </div>
@@ -366,9 +364,32 @@
                         <i class="far fa-file-powerpoint"></i>
                     </div>
                     <div class="presentation-info">
-                        <h3>Заключителна презентация</h3>
+                        <h3>Заключителна презентация Римини</h3>
                         <p>Обобщение на придобитите знания и умения</p>
-                        <a href="presentations/final-presentation.pptx" class="btn-download">Изтегли</a>
+                        <a href="Rimini_Presentation.pptx" class="btn-download">Изтегли</a>
+                    </div>
+                </div>
+
+                <div class="presentation-card">
+                    <div class="presentation-image">
+                        <i class="far fa-file-powerpoint"></i>
+                    </div>
+                    <div class="presentation-info">
+                        <h3>Заключителна презентация Малага ученическа група</h3>
+                        <p>Придобити професионални умения и знания</p>
+                        <a href="presentations/professional-skills.pptx" class="btn-download">Изтегли</a>
+                    </div>
+                </div>
+
+                
+                <div class="presentation-card">
+                    <div class="presentation-image">
+                        <i class="far fa-file-powerpoint"></i>
+                    </div>
+                    <div class="presentation-info">
+                        <h3>Заключителна презентация Малага учителска група</h3>
+                        <p>Презентация за културните преживявания и обмени</p>
+                        <a href="presentations/cultural-exchange.pptx" class="btn-download">Изтегли</a>
                     </div>
                 </div>
             </section>

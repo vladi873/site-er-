@@ -29,47 +29,52 @@
 
         .navbar {
             background-color: #003366;
-            padding: 1.4rem;
+            padding: 1.5rem;
             color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             position: relative;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
 
         .logo {
             height: 40px;
         }
 
-        .logo-container h1 {
-            font-size: 2rem;
+        .navbar h1 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.2rem;
         }
 
-        nav ul {
+
+         nav ul.main-menu{
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
 
-        nav ul li a {
+        nav ul.main-menu li a {
             color: white;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             padding: 0.5rem;
         }
 
-        nav ul li a.active,
-        nav ul li a:hover {
-            background-color: #003366;
+        nav ul.main-menu li a.active,
+        nav ul.main-menu li a:hover {
+            background-color: #0055aa;
             border-radius: 5px;
         }
 
@@ -145,7 +150,7 @@
         }
 
         .btn-primary {
-            background-color: #003366;
+            background-color: #003366; 
             color: white;
             padding: 10px 20px;
             border-radius: 25px;
@@ -312,6 +317,8 @@
                 <li><a href="gallery.html">Галерия</a></li>
                 <li><a href="presentations.html">Презентации</a></li>
                 <li><a href="videos.html">Видеа</a></li>
+                <li><a href="Portugal.html">Португалия</a></li>
+                <li><a href="Rimini.html">Римини</a></li>
                 <li><a href="Malaga.html" class="active">Малага</a></li>
             </ul>
             <div class="side-menu" id="sideMenu">
@@ -320,7 +327,8 @@
                 <a href="gallery.html">Галерия</a>
                 <a href="presentations.html">Презентации</a>
                 <a href="videos.html">Видеа</a>
-                <a href="cork.html">Корк</a>
+                <a href="Portugal.html">Португалия</a>
+                <a href="Rimini.html">Римини</a>
                 <a href="Malaga.html" class="active">Малага</a>
             </div>
         </nav>

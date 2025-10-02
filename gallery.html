@@ -29,48 +29,53 @@
             filter: blur(2px);
         }
 
-        .navbar {
+.navbar {
             background-color: #003366;
-            padding: 1rem;
+            padding: 1.5rem;
             color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             position: relative;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
 
         .logo {
             height: 40px;
         }
 
-        .logo-container h1 {
-            font-size: 2rem;
+        .navbar h1 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.2rem;
         }
 
-        nav ul {
+
+         nav ul.main-menu{
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
 
-        nav ul li a {
+        nav ul.main-menu li a {
             color: white;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             padding: 0.5rem;
         }
 
-        nav ul li a.active,
-        nav ul li a:hover {
+        nav ul.main-menu li a.active,
+        nav ul.main-menu li a:hover {
             background-color: #0055aa;
             border-radius: 5px;
         }
@@ -324,6 +329,7 @@
                 <li><a href="gallery.html" class="active">Галерия</a></li>
                 <li><a href="presentations.html">Презентации</a></li>
                 <li><a href="videos.html">Видеа</a></li>
+                <li><a href="Portugal.html">Португалия</a></li>
                 <li><a href="Rimini.html">Римини</a></li>
                 <li><a href="Malaga.html">Малага</a></li>
             </ul>
@@ -333,6 +339,7 @@
                 <a href="gallery.html" class="active">Галерия</a>
                 <a href="presentations.html">Презентации</a>
                 <a href="videos.html">Видеа</a>
+                <a href="Portugal.html">Португалия</a>
                 <a href="Rimini.html">Римини</a>
                 <a href="Malaga.html">Малага</a>
             </div>
@@ -348,10 +355,10 @@
 
             <div class="gallery-filter">
                 <button class="filter-btn active" data-filter="all">Всички</button>
+                <button class="filter-btn" data-filter="Portugal">Португалия</button>
                 <button class="filter-btn" data-filter="Rimini">Римини</button>
                 <button class="filter-btn" data-filter="malaga">Малага</button>
-                <button class="filter-btn" data-filter="events">Културни визити</button>
-                <button class="filter-btn" data-filter="students">Ученици</button>
+                <button class="filter-btn" data-filter="malaga_Teacher_group">Малага учители</button>
             </div>
 
             <section class="gallery-grid">
@@ -386,68 +393,53 @@
 
                 
                 <!-- Malaga Images -->
-                <div class="gallery-item" data-category="malaga">
-                    <a href="images/malaga1.jpg" data-fancybox="gallery" data-caption="Момент от Малага">
-                        <img src="images/malaga1-thumb.jpg" alt="Момент от Малага">
-                        <div class="image-caption">Момент от Малага</div>
-                    </a>
-                </div>
+                <script>
+
+                    for (let i = 1; i <= 90; i++) {
+                    document.write(`
+                        <div class="gallery-item" data-category="malaga">
+                            <a href="Spain/${i}.jpg" data-fancybox="gallery" data-caption="Снимка ${i} от Malaga students">
+                                <img src="Spain/${i}.jpg" alt="Снимка ${i}">
+                                <div class="image-caption">Снимка ${i}</div>
+                            </a>
+                        </div>
+                    `);
+                }
+                    </script>
                 
-                <div class="gallery-item" data-category="malaga">
-                    <a href="images/malaga2.jpg" data-fancybox="gallery" data-caption="Университета в Малага">
-                        <img src="images/malaga2-thumb.jpg" alt="Университета в Малага">
-                        <div class="image-caption">Университета в Малага</div>
-                    </a>
-                </div>
+                <!-- Malaga_Teachers group Images -->
                 
-                <div class="gallery-item" data-category="malaga">
-                    <a href="images/malaga3.jpg" data-fancybox="gallery" data-caption="Културен обмен">
-                        <img src="images/malaga3-thumb.jpg" alt="Културен обмен">
-                        <div class="image-caption">Културен обмен</div>
-                    </a>
-                </div>
+                <script>
+
+                for (let i = 1; i <= 26; i++) {
+                    document.write(`
+                        <div class="gallery-item" data-category="malaga_Teacher_group">
+                            <a href="Teacher_group/${i}.jpg" data-fancybox="gallery" data-caption="Снимка ${i} от Malaga">
+                                <img src="Teacher_group/${i}.jpg" alt="Снимка ${i}">
+                                <div class="image-caption">Снимка ${i}</div>
+                            </a>
+                        </div>
+                    `);
+                }
+
+                for (let i = 1; i <= 14; i++) {
+                    document.write(`
+                        <div class="gallery-item" data-category="Portugal">
+                            <a href="Portugal/${i}.jpg" data-fancybox="gallery" data-caption="Снимка ${i} от Португалия">
+                                <img src="Portugal/${i}.jpg" alt="Снимка ${i}">
+                                <div class="image-caption">Снимка ${i}</div>
+                            </a>
+                        </div>
+                    `);
+                }
+
+                    </script>
                 
-                <!-- Events -->
-                <div class="gallery-item" data-category="events">
-                    <a href="images/event1.jpg" data-fancybox="gallery" data-caption="Официална церемония">
-                        <img src="images/event1-thumb.jpg" alt="Официална церемония">
-                        <div class="image-caption">Официална церемония</div>
-                    </a>
-                </div>
-                
-                <div class="gallery-item" data-category="events">
-                    <a href="images/event2.jpg" data-fancybox="gallery" data-caption="Сертификати">
-                        <img src="images/event2-thumb.jpg" alt="Сертификати">
-                        <div class="image-caption">Сертификати</div>
-                    </a>
-                </div>
+                <!-- Portugal teacher group -->
+
                 
                 <!-- Students -->
-                <div class="gallery-item" data-category="students">
-                    <a href="images/students1.jpg" data-fancybox="gallery" data-caption="Групова работа">
-                        <img src="images/students1-thumb.jpg" alt="Групова работа">
-                        <div class="image-caption">Групова работа</div>
-                    </a>
-                </div>
-                
-                <div class="gallery-item" data-category="students">
-                    <a href="logo3.jpg" data-fancybox="gallery" data-caption="Дискусия">
-                        <img src="logo3.jpg" alt="Дискусия">
-                        <div class="image-caption">Дискусия</div>
-                    </a>
-                </div>
-                
-                <div class="gallery-item" data-category="students">
-                    <a href="images/students3.jpg" data-fancybox="gallery" data-caption="Презентация">
-                        <img src="images/students3-thumb.jpg" alt="Презентация">
-                        <div class="image-caption">Презентация</div>
-                    </a>
-                </div>
-                
-                <div class="gallery-item" data-category="students">
-                    <a href="images/students4.jpg" data-fancybox="gallery" data-caption="Екипен проект">
-                        <img src="images/students4-thumb.jpg" alt="Екипен проект">
-                        <div class="image-caption">Екипен проект</div>
+                 
                     </a>
                 </div>
             </section>

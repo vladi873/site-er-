@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erasmus+ ПГЕЕ "М.В. Ломоносов" - Малага</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .content-wrapper {
+            transition: filter 0.3s ease;
+        }
+
+        .blurred {
+            filter: blur(2px);
+        }
+
+        .navbar {
+            background-color: #003366;
+            padding: 1.5rem;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+
+        nav ul.main-menu{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul.main-menu li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem;
+        }
+
+        nav ul.main-menu li a.active,
+        nav ul.main-menu li a:hover {
+            background-color: #0055aa;
+            border-radius: 5px;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100vh;
+            width: 250px;
+            background-color: #003366;
+            padding: 5rem 1rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+
+        .side-menu.show {
+            right: 0;
+        }
+
+        .side-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero {
+            background-color: #003366;
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            background-color: #ffd700; 
+            color: #003366;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0055aa;
+        }
+
+        .logos-section {
+            background-color: #00336650;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .logos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .logos-container img {
+            max-height: 90px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logos-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+
+        .feature {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            color: #003366;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        main {
+            padding: 1.5rem;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icons {
+            margin-top: 0.5rem;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .social-icons a:hover {
+            color: #ddd;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            font-size: 20px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul.main-menu {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .logo-container h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container h1 {
+                font-size: 1.25rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="pgeelomonsov.png" alt="Лого" class="logo">
+            <h1>Програма Erasmus+</h1>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul class="main-menu">
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="about.html">За нас</a></li>
+                <li><a href="gallery.html">Галерия</a></li>
+                <li><a href="presentations.html">Презентации</a></li>
+                <li><a href="videos.html">Видеа</a></li>
+                <li><a href="Portugal.html" class="active">Португалия</a></li>
+                <li><a href="Rimini.html">Римини</a></li>
+                <li><a href="Malaga.html">Малага</a></li>
+            </ul>
+            <div class="side-menu" id="sideMenu">
+                <a href="index.html">Начало</a>
+                <a href="about.html">За нас</a>
+                <a href="gallery.html">Галерия</a>
+                <a href="presentations.html">Презентации</a>
+                <a href="videos.html">Видеа</a>
+                <a href="Portugal.html" class="active">Португалия</a>
+                <a href="Rimini.html">Корк</a>
+                <a href="Malaga.html">Малага</a>
+            </div>
+        </nav>
+    </header>
+    <div class="content-wrapper" id="contentWrapper">
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Португалия - Живописният град на Андалусия</h2>
+                    <p>Слънчев град с богата история, култура и перфектни възможности за обучение по Erasmus+.</p>
+                    <a href="gallery.html" class="btn-primary">Разгледай снимки</a>
+                </div>
+            </section>
+
+            <section class="logos-section">
+                <div class="logos-container">
+                    <img src="Portugal_flag.jpg" alt="Университет Малага">
+                    <img src="pesoa.png" alt="Знаме на Испания">
+                    <img src="Flag_of_Lisbon.svg.png" alt="Erasmus+">
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="feature">
+                    <img src="malaga-city.jpg" alt="Центърът на Малага">
+                    <h3>Средиземноморска красота</h3>
+                    <p>Малага впечатлява с прекрасни плажове, исторически център и живописни улици, пълни с живот.</p>
+                </div>
+                <div class="feature">
+                    <img src="malaga-campus.jpg" alt="Университет в Малага">
+                    <h3>Модерно образование</h3>
+                    <p>Университетът в Малага предлага висококачествено образование и богати възможности за практика.</p>
+                </div>
+                <div class="feature">
+                    <img src="malaga-culture.jpg" alt="Култура в Малага">
+                    <h3>Културна столица</h3>
+                    <p>Родното място на Пикасо, Малага е истинска културна мекка с музеи, фестивали и традиционна андалуска култура.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 ПГЕЕ "М.В. Ломоносов" – Всички права запазени.</p>
+            <div class="social-icons">
+                <a href="https://www.tiktok.com/@m.v.lomonosov" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/pgee.lomonosov.go?igsh=emZ1M3N0cWQzbTlj" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61552596358136" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-to-top">↑</button>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('sideMenu');
+            const content = document.getElementById('contentWrapper');
+            menu.classList.toggle('show');
+            content.classList.toggle('blurred');
+        }
+
+        window.onscroll = function () {
+            const btn = document.querySelector('.scroll-to-top');
+            btn.style.display = window.scrollY > 100 ? 'block' : 'none';
+        };
+    </script>
+</body>
+</html>
