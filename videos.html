@@ -55,7 +55,6 @@
             font-size: 1.2rem;
         }
 
-
         nav ul {
             list-style: none;
             padding: 0;
@@ -122,7 +121,7 @@
             transition: background-color 0.3s ease;
         }
 
-                .side-menu a:hover {
+        .side-menu a:hover {
             background-color: #0055aa;
         }
 
@@ -139,7 +138,8 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
         }
-                .presentations-header h1 {
+
+        .presentations-header h1 {
             font-size: 2rem;
             margin-bottom: 1rem;
             font-weight: 600;
@@ -270,12 +270,8 @@
                 font-size: 1.5rem;
             }
 
-            .presentation-intro h2 {
+            .presentations-header h1 {
                 font-size: 1.5rem;
-            }
-
-            .presentation-intro p {
-                font-size: 1rem;
             }
 
             .video-lightbox-content {
@@ -288,12 +284,8 @@
                 font-size: 1.25rem;
             }
 
-            .presentation-intro h2 {
+            .presentations-header h1 {
                 font-size: 1.5rem;
-            }
-
-            .presentation-intro p {
-                font-size: 0.95rem;
             }
 
             .video-grid {
@@ -303,7 +295,7 @@
     </style>
 </head>
 <body>
-    <div class="content-wrapper" id="contentWrapper">
+    <!-- ПРЕМЕСТИ НАВБАРА ИЗВЪН content-wrapper -->
     <header class="navbar">
         <div class="logo-container">
             <img src="pgeelomonsov.png" alt="Лого" class="logo">
@@ -322,7 +314,7 @@
                 <li><a href="presentations.html">Презентации</a></li>
                 <li><a href="videos.html" class="active">Видеа</a></li>
                 <li><a href="Portugal.html">Португалия</a></li>
-                <li><a href="Rimini.html">Римини</a></li> <!-- Поправен правописен грешка в href -->
+                <li><a href="Rimini.html">Римини</a></li>
                 <li><a href="Malaga.html">Малага</a></li>
             </ul>
             <div class="side-menu" id="sideMenu">
@@ -338,10 +330,11 @@
         </nav>
     </header>
 
+    <!-- СЕГА content-wrapper започва ТУК (ПРЕМАХНАТ ВТОРИЯ content-wrapper) -->
     <div class="content-wrapper" id="contentWrapper">
         <main>
-            <section class="presentation-intro">
-                <h2>Видео Галерия</h2>
+            <section class="presentations-header">
+                <h1>Видео Галерия</h1>
                 <p>Разгледайте видео клиповете от дейностите по проекта Erasmus+.</p>
             </section>
 

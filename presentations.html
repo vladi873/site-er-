@@ -57,8 +57,7 @@
             font-size: 1.2rem;
         }
 
-
-         nav ul.main-menu{
+        nav ul.main-menu{
             list-style: none;
             padding: 0;
             margin: 0;
@@ -117,7 +116,7 @@
 
         .side-menu a {
             color: white;
-            text-decoration: none;
+            text-decoration:none;
             font-weight: 600;
             padding: 0.5rem;
             border-radius: 5px;
@@ -271,8 +270,8 @@
     </style>
 </head>
 <body>
-    <div class="content-wrapper" id="contentWrapper">
-        <header class="navbar">
+    <!-- ПРЕМЕСТИ НАВБАРА ИЗВЪН content-wrapper -->
+    <header class="navbar">
         <div class="logo-container">
             <img src="pgeelomonsov.png" alt="Лого" class="logo">
             <h1>Програма Erasmus+</h1>
@@ -282,30 +281,32 @@
             <div></div>
             <div></div>
         </div>
-            <nav>
-                <ul class="main-menu">
-                    <li><a href="index.html">Начало</a></li>
-                    <li><a href="about.html">За нас</a></li>
-                    <li><a href="gallery.html">Галерия</a></li>
-                    <li><a href="presentations.html" class="active">Презентации</a></li>
-                    <li><a href="videos.html">Видеа</a></li>
-                    <li><a href="Portugal.html">Португалия</a></li>
-                    <li><a href="Rimini.html">Римини</a></li>
-                    <li><a href="Malaga.html">Малага</a></li>
-                </ul>
-                <div class="side-menu" id="sideMenu">
-                    <a href="index.html">Начало</a>
-                    <a href="about.html">За нас</a>
-                    <a href="gallery.html">Галерия</a>
-                    <a href="presentations.html" class="active">Презентации</a>
-                    <a href="videos.html">Видеа</a>
-                    <a href="Portugal.html">Португалия</a>
-                    <a href="Rimini.html">Римини</a>
-                    <a href="Malaga.html">Малага</a>
-                </div>
-            </nav>
-        </header>
+        <nav>
+            <ul class="main-menu">
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="about.html">За нас</a></li>
+                <li><a href="gallery.html">Галерия</a></li>
+                <li><a href="presentations.html" class="active">Презентации</a></li>
+                <li><a href="videos.html">Видеа</a></li>
+                <li><a href="Portugal.html">Португалия</a></li>
+                <li><a href="Rimini.html">Римини</a></li>
+                <li><a href="Malaga.html">Малага</a></li>
+            </ul>
+            <div class="side-menu" id="sideMenu">
+                <a href="index.html">Начало</a>
+                <a href="about.html">За нас</a>
+                <a href="gallery.html">Галерия</a>
+                <a href="presentations.html" class="active">Презентации</a>
+                <a href="videos.html">Видеа</a>
+                <a href="Portugal.html">Португалия</a>
+                <a href="Rimini.html">Римини</a>
+                <a href="Malaga.html">Малага</a>
+            </div>
+        </nav>
+    </header>
 
+    <!-- СЕГА content-wrapper започва ТУК -->
+    <div class="content-wrapper" id="contentWrapper">
         <main>
             <section class="presentations-header">
                 <h1>Презентации</h1>
@@ -322,7 +323,6 @@
                         <p>Презентация за престоя и обучението в Португалия, Лисабон</p>
                         <a href="Portugaliia_Prezentaciia.pptx" class="btn-download">Изтегли</a>
                     </div>
-
                 </div>
 
                 <div class="presentation-card">
@@ -346,7 +346,6 @@
                         <a href="Malaga_posledno.pptx" class="btn-download">Изтегли</a>
                     </div>
                 </div>
-
 
                 <div class="presentation-card">
                     <div class="presentation-image">
@@ -380,7 +379,6 @@
                         <a href="presentations/professional-skills.pptx" class="btn-download">Изтегли</a>
                     </div>
                 </div>
-
                 
                 <div class="presentation-card">
                     <div class="presentation-image">
