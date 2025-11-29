@@ -157,6 +157,20 @@
             margin-bottom: 1.5rem;
         }
 
+         .btn-primary {
+            background-color: #ffd700; 
+            color: #003366;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0055aa;
+        }
+
         .gallery-filter {
             display: flex;
             justify-content: center;
@@ -351,14 +365,15 @@
             <section class="hero">
                 <h1>Фото Галерия</h1>
                 <p>Преживейте отново моментите от нашите Erasmus+ проекти</p>
+                 <a href="videos.html" class="btn-primary">Разгледай видета</a>
             </section>
 
             <div class="gallery-filter">
                 <button class="filter-btn active" data-filter="all">Всички</button>
-                <button class="filter-btn" data-filter="Portugal">Португалия</button>
+                <button class="filter-btn" data-filter="Portugal">Португалия учители</button>
                 <button class="filter-btn" data-filter="Rimini">Римини</button>
-                <button class="filter-btn" data-filter="malaga">Малага</button>
                 <button class="filter-btn" data-filter="malaga_Teacher_group">Малага учители</button>
+                <button class="filter-btn" data-filter="Certific">Сертификати</button>
             </div>
 
             <section class="gallery-grid">
@@ -390,22 +405,6 @@
                 }
                     </script>
 
-
-                
-                <!-- Malaga Images -->
-                <script>
-
-                    for (let i = 1; i <= 90; i++) {
-                    document.write(`
-                        <div class="gallery-item" data-category="malaga">
-                            <a href="Spain/${i}.jpg" data-fancybox="gallery" data-caption="Снимка ${i} от Malaga students">
-                                <img src="Spain/${i}.jpg" alt="Снимка ${i}">
-                                <div class="image-caption">Снимка ${i}</div>
-                            </a>
-                        </div>
-                    `);
-                }
-                    </script>
                 
                 <!-- Malaga_Teachers group Images -->
                 
@@ -433,13 +432,18 @@
                     `);
                 }
 
+                 for (let i = 1; i <= 19; i++) {
+                    document.write(`
+                        <div class="gallery-item" data-category="Certific">
+                            <a href="Certificati/${i}.jpg" data-fancybox="gallery" data-caption="Снимка ${i} от Сертификати">
+                                <img src="Certificati/${i}.jpg" alt="Снимка ${i}">
+                                <div class="image-caption">Снимка ${i}</div>
+                            </a>
+                        </div>
+                    `);
+                }
                     </script>
-                
-                <!-- Portugal teacher group -->
 
-                
-                <!-- Students -->
-                 
                     </a>
                 </div>
             </section>
